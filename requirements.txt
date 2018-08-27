@@ -4,3 +4,6 @@ django-ipware==2.1.0
 ipaddress==1.0.16
 pygeoip==0.3.2
 pytz==2018.5
+psycopg2==2.6.1
+whitenoise==4.0
+gunicorn==19.9.0
