@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <h1>{{ hello }}</h1>
+    <hr />
+    
+    <head>
+      
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+          position: relative;
+          top: 100px;
+          background-color: grey;
+       }
+    </style>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    var ip = '72.12.216.166'
+    var access_key = 'f7bf1bccdaefe804f2f9e8378a18f06c';
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.ajax({
+    url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,   
+    dataType: 'jsonp',
+    success: function(json) {
+        // output the "capital" object inside "location"
+        $("#div1").append(" <text>Your ip address is <b> {{ ipaddr }} </b></text><br/>");
+        $("#div1").append("<text>You are in <strong>" + json.city + ", " + json.region_name + ", " + json.region_code + ", " + json.country_name +"</strong> - capital: <strong>" + json.location.capital + "</strong>.</text><br/>")
+        $("#div1").append("<text>The native language is <b><strong>" + json.location.languages[0].native + "</strong></b><br/></text><br />")
+       
+    }
+}); 
+            });
+        });
+    </script>
+
+    </head>
+
+    <body>
+        <div>
+        
+            <h2>Time Given By Javascript event</h2>
+            
+        
+        </div>
+        
+        <div align="center" style="border:1px solid red">
+            <clock>
+            <p style="font-size: 80px;" id="time"></p>
+            </clock>
+        </div>
+        <hr />
+        <script>
+            var myVar = setInterval(myTimer, 1000);
+            function myTimer(){
+                var time = new Date();
+                document.getElementById("time").innerHTML = time.toLocaleTimeString();
+            }
+        </script>
+
+        <div>
+            <p>Date Given By Django Time Event For Indianapolis</p>
+    
+        </div>
+        
+        <div align="center">
+            <p style="font-size: 80px;">{{ timenow |date:"D d M Y" }}</p>
+        </div>
+        
+        <hr>
+        <div>
+            <h2>Map That Marks LWSN And Show Purdue</h2>
+        
+        </div>
+        <div id="map"></div>
+       
+        <br/><br/><br/><br/><br/>
+        <hr />
+        
+        <div>
+        <h3>GEO API By IPstack</h3>
+        <text>Your ip address is <b>{{ ipaddr }}</b></text><br/>
+        <text>You are in <strong>West Lafayette , Indiana, United States</strong> - capital: <strong>Washington D.C.</strong>.</text><br/>
+            <text>The native language is <b><strong>English</strong></b><br/></text>
+        </div>
+            
+        <div id="div1"><h3>Want to Know Your IP Detail? Click:</h3></div>
+
+        <button>To Get External Content</button>
+        
+        
+        <script>
+            // Initialize and add the map
+function initMap() {
+    // The location of Uluru
+    var purdue = {lat: 40.428, lng: -86.917};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 14, center: purdue});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: purdue, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAOyE09CGGzM9RfZXnWIWOtKjpl7Oqb3Q&callback=initMap">
+    </script>     
+    </body>
+
+
+</html>
+
