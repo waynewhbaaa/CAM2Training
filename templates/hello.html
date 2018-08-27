@@ -21,7 +21,7 @@
     var access_key = 'f7bf1bccdaefe804f2f9e8378a18f06c';
         $(document).ready(function(){
             $("button").click(function(){
-                $("#div1").append("<h2>EMMM</h2>")
+                $("#div1").append("<h2>Emmm seems like Heroku does not call the api in the script by Ajax</h2>")
                 $.ajax({
     url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,   
     dataType: 'jsonp',
@@ -32,6 +32,9 @@
         $("#div1").append("<text>The native language is <b><strong>" + json.location.languages[0].native + "</strong></b><br/></text><br />")
        
     }
+    error: function(){
+            alert("I do not know why this happened, it gets an error for the api")        
+                }
 }); 
             });
         });
