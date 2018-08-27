@@ -21,6 +21,7 @@
     var access_key = 'f7bf1bccdaefe804f2f9e8378a18f06c';
         $(document).ready(function(){
             $("button").click(function(){
+                $("#div1").append("<h2>EMMM</h2>")
                 $.ajax({
     url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key,   
     dataType: 'jsonp',
