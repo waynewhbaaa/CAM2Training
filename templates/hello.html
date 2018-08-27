@@ -31,7 +31,7 @@
         $("#div1").append("<text>You are in <strong>" + json.city + ", " + json.region_name + ", " + json.region_code + ", " + json.country_name +"</strong> - capital: <strong>" + json.location.capital + "</strong>.</text><br/>")
         $("#div1").append("<text>The native language is <b><strong>" + json.location.languages[0].native + "</strong></b><br/></text><br />")
        
-    }
+    },
     error: function(){
             alert("I do not know why this happened, it gets an error for the api")        
                 }
