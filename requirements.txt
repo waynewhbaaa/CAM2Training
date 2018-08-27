@@ -3,6 +3,6 @@ django-easy-timezones==0.8.0
 django-ipware==2.1.0
 gunicorn==19.9.0
 ipaddress==1.0.16
+pkg-resources==0.0.0
 pygeoip==0.3.2
 pytz==2018.5
-whitenoise==4.0
